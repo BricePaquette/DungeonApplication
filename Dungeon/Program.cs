@@ -28,7 +28,7 @@
             do
             {
 
-                //TODO Generate a random room the player will enter
+                //Generate a random room the player will enter
                 RoomGenerator();
 
                 //TODO Select a random monster to inhabit the room
@@ -118,6 +118,9 @@
 
         private static void RoomGenerator()
         {
+            #region rooms[]
+
+            
             string[] rooms = { "The door is made of pinewood planks, it has a bone handle and a small hole at eye level. This room has a smoothly hewn natural stone floor that have been polished smooth. Arranged in concentric rectangles, the floor has been inscribed with arcane runes. Investigation indicates no pattern or intent and it seems likely that no two are the same and that it may serve some instructional purpose. The ceiling is a barrel vaulted with ribs (regular rounded ribs support this barrel vault ceiling) and is intricately carved with a repeating pattern of angular geometric shapes.\r\n\r\nCrudely drawn on the walls are several profane symbols. From the stench and appearance, it appears as if blood and feces were used to draw them. A lit oil lantern sits on the floor in the middle of this room. Investigation reveals that it has half an hour of oil remaining.\r\n\r\nThe air in the room is hazy and humid. The room smells of Manure. A faint drumming noise can be heard.",
 
                 "The door is made of sandstone, it has a double-sided iron bolt and a black 'X' is drawn across the inside of the door, it appears to have been done with tar. This room has a square marble tile floor. A section of the floor about ten feet across and shaped like a hex is a smooth blue stone that gives off a faint glow. Several places around the edge show signs of damage. The ceiling is a barrel vaulted with ribs (regular rounded ribs support this barrel vault ceiling) and with arm thick tendrils of viscous brown goo that hangs down to the floor in half a dozen places. It gives off a putrid stench, but appears otherwise harmless.\r\n\r\nAll the walls of this room are painted with one continuous scene, divided by a horizontal line of fire, with flying demons above, and celestial creatures below. The stump of a once large tree protrudes from the broken floor near the center of the room. It has been hacked down to only a few inches remaining and is darkened from age or liquid stains.\r\n\r\nThe air in the room is hazy and humid. The room smells of Chlorine. A loud slamming noise can be heard.",
@@ -139,6 +142,7 @@
             "The door is made of leather over a wooden frame, it has a no handle and on the inside of the door a chalk arrow points to the lower hinge. This room has an irregular flagstone tile floor. Almost two inches of fine silt covers the floor of this room. The ceiling is a coffered (flat ceiling with sunken rectangular recessed panels) and covered with a network of cracks that are no more than a finger's width wide.\r\n\r\nDark oil that smells of sulfur coats most of one wall. It seems to seep from the stone and may be flammable. Several large clumps of brown mold grow in the corners of the room.\r\n\r\nThe air in the room is clear, with mist covering the floor. The room smells sulfurous. A faint footsteps noise can be heard.",
 
             "The door is made of a beaded string curtain, it has a wood bolt on the inside and a sign was once carved in high relief on this door, but most of the letters have been scraped off, leaving only \" o N nt \". This room has a hard-packed dirt floor. A pit has been carved into the stone of the floor near one wall. It is about two feet wide, five feet long and three feet wide. The ceiling is a domed (entire ceiling is gently rounded) and covered with moist dark green moss.\r\n\r\nTwo of the walls are covered in mushrooms. Investigation shows that they are made of stone. Five bodies lay fallen in a pile near one corner; two human males, one female, a male dwarf, and a female elf. They appear to have died in the last hour and have been thoroughly looted except for their clothes.\r\n\r\nThe air in the room is clear but cold. The room smells acrid. A loud coughing noise can be heard."};
+            #endregion
 
             Random rand = new Random();
             int randomIndex = rand.Next(rooms.Length);
