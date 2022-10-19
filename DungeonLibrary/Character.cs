@@ -1,7 +1,12 @@
 ﻿namespace DungeonLibrary
 {
-    public class Character
+    public abstract class Character
     {
+
+        //The "Abstract" modfier denotes this datatype class as "Incomplete" -- we don't intend
+        //to make a character object, but will instead use Character as a 
+        //Starting point for other, more specific types. More on this later...
+
         //Fields
         private int _maxLife;
         private int _life;
@@ -17,13 +22,13 @@
             get { return _life; }
             set
             {
-                if (Life <= MaxLife)
+                if (_life <= _maxLife)
                 {
                     _life = value;
                 }
                 else
                 {
-                    Life = MaxLife;
+                    _life = _maxLife;
                 }
             }
         }
