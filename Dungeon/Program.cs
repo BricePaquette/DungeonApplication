@@ -1,4 +1,5 @@
-﻿namespace Dungeon
+﻿using DungeonLibrary;
+namespace Dungeon
 {
     internal class Program
     {
@@ -16,7 +17,10 @@
             int score = 0;
 
             //TODO Weapon object to be created
+            Weapon sword = new Weapon(8, 10, "Sword", 2, false, WeaponType.Sword);
+            Console.WriteLine(sword);
 
+            
             //TODO Player object creation
 
 

@@ -13,25 +13,11 @@
         private string _name;
         private int _hitChance;
         private int _block;
-
+        
 
         //Properties
         public int MaxLife { get; set; }
-        public int Life 
-        {
-            get { return _life; }
-            set
-            {
-                if (_life <= _maxLife)
-                {
-                    _life = value;
-                }
-                else
-                {
-                    _life = _maxLife;
-                }
-            }
-        }
+        
         public string Name
         {
             get { return _name; }
@@ -47,8 +33,25 @@
             get { return _block; }
             set { _block = value; }
         }
+        public int Life
+        {
+            get { return _life; }
+            set
+            {
 
-        
+                _life = value <= MaxLife ? _life = value : MaxLife;
+
+                //if (value <= _maxLife)//prop or field
+                //{
+                //    _life = value;
+                //}
+                //else
+                //{
+                //    _life = MaxLife;
+                //}
+            }
+        }
+
         //Constructors
         public Character()
         {
@@ -57,7 +60,7 @@
         public Character(int maxLife, int life, string name, int hitChance, int block)
         {
             MaxLife = maxLife;
-            Life = life;
+            Life = MaxLife;
             Name = name;
             HitChance = hitChance;
             Block = block;
@@ -67,14 +70,19 @@
         //Methods
         public override string ToString()
         {
-            return string.Format($"Name: {Name}\nCurrent Life: {Life}\nMaximum Life: {MaxLife}\nHit Chance: {HitChance}\nBlock: {Block}");
+            //return string.Format($"Name: {Name}\nCurrent Life: {Life}\nMaximum Life: {MaxLife}\nHit Chance: {HitChance}\nBlock: {Block}");
+            return $"-----{Name}-----\nLife: {Life} of {MaxLife}\nHit Chance: {HitChance}\nBlock: {Block}\n";
         }
         
-        public int CalcBlock()
+        public virtual int CalcBlock()
         {
             return Block;   
         }
-        public int CalcDamage()
+        public virtual int CalcHitChance()
+        {
+            return HitChance;
+        }
+        public virtual int CalcDamage()
         {
             return 0;
         }
