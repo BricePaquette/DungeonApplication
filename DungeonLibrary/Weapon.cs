@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    internal class Weapon
+    public class Weapon
     {
 
 
@@ -36,26 +36,10 @@ namespace DungeonLibrary
         private string _name;
         private int _bonusHitChance;
         private bool _isTwoHanded;
+        private WeaponType _type;
 
 
         //Properties
-        public int MinDamge 
-        {
-        get { return _minDamage; }
-            set 
-            {
-                if (_minDamage <= _maxDamage)
-                {
-                    _minDamage = value;
-                }
-                else
-                {
-                    _minDamage = _maxDamage;
-                }
-            
-            }
-        
-        }
         public int MaxDamge
         {
             get { return _maxDamage; }
@@ -78,25 +62,44 @@ namespace DungeonLibrary
             get { return _isTwoHanded; }
             set { _isTwoHanded = value; }
         }
+        public WeaponType Type
+        {
+            get { return _type; }
+            set { _type = value; }
+        }
+        public int MinDamge 
+        {
+        get { return _minDamage; }
+            set 
+            {
+               _minDamage = (value > 0 && value <= MaxDamge) ? value : 1;
+            
+            }
         
+        }
         //Constructors
         public Weapon()
         {
 
         }
-        public Weapon(int minDamage, int maxDamage, string name, int bonusHitChance, bool isTwoHanded)
+        public Weapon(int minDamage, int maxDamage, string name, int bonusHitChance, bool isTwoHanded, WeaponType type)
         {
             _maxDamage = maxDamage;
             _minDamage = minDamage;
             Name = name;
             BonusHitChance = bonusHitChance;
             IsTwoHanded = isTwoHanded;
+            type = Type;
             
         }
+
+        //Methods()
         public override string ToString()
         {
-            return string.Format($"Name: {Name}\nMaximum Damage: {MaxDamge}\nMinimum Damage: {MinDamge}\nBonus Hit Chance: {BonusHitChance}\nTwo Handed?: {IsTwoHanded}");
+            return string.Format($"Name: {Name}\t{MinDamge} to {MaxDamge} Damage\nBonus Hit Chance: {BonusHitChance}\nTwo Handed?: {IsTwoHanded}\nWeapon type: {Type}\n");
         }
-        //Methods()
+
+
+        
     }
 }
