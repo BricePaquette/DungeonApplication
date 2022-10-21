@@ -17,12 +17,12 @@ namespace Dungeon
             int score = 0;
 
             //TODO Weapon object to be created
-            Weapon sword = new Weapon(8, 10, "Sword", 2, false, WeaponType.Sword);
-            Console.WriteLine(sword);
 
-            
+
+
             //TODO Player object creation
-
+            Console.WriteLine("Welcome to the Dungeon of Doom.....");
+            //Player userPlayer = new Player(15, 15, userName, 10, 10, Race.userRace, Weapon.userWeapon);
 
             //create main game loop
 
@@ -72,6 +72,7 @@ namespace Dungeon
                         case ConsoleKey.R:
                             //TODO Run Away - Attack of opportunity
                             Console.WriteLine("Run away");
+                            RoomGenerator();
 
                             break;
                         case ConsoleKey.P:
