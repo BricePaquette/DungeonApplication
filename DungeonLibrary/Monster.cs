@@ -13,22 +13,26 @@ namespace DungeonLibrary
         //Max damage 
         //description
         private int _minDamage;
-        public int MaxDamge { get; set; }
+        public int MaxDamage { get; set; }
         public string Description { get; set; }
         public int MinDamage
         {
             get { return _minDamage; }
             set
             {
-                _minDamage = (value > 0 && value <= MaxDamge) ? value : MaxDamge;
+                _minDamage = (value > 0 && value <= MaxDamage) ? value : MaxDamage;
             }
+        }
+        public Monster()
+        {
+
         }
 
         public Monster(int maxLife, int life, string name, int hitChance, int block, int maxDamage, int minDamage, string description) 
             : base(maxLife, life, name, hitChance, block)
         {
             //remember to set macDamage first! because mindamage wwill reference maxDamage
-            MaxDamge = maxDamage;
+            MaxDamage = maxDamage;
             MinDamage = minDamage;
             Description = description;
         }
@@ -38,7 +42,7 @@ namespace DungeonLibrary
         public override int CalcDamage()
         {
             Random rand = new Random();
-            int randomDamage = rand.Next(MinDamage, MaxDamge + 1);
+            int randomDamage = rand.Next(MinDamage, MaxDamage + 1);
             return randomDamage;
         }
 
@@ -46,7 +50,7 @@ namespace DungeonLibrary
 
         public override string ToString()
         {
-            return base.ToString() + $"\n{MinDamage} to {MaxDamge} damage potential\n{Description}";
+            return base.ToString() + $"\n{MinDamage} to {MaxDamage} damage potential\n{Description}";
         }
     }
 }
